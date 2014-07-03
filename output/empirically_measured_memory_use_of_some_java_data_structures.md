@@ -1,6 +1,6 @@
 # Empirically Measured Memory Use of some Java Data
 
-Meng LU <lumeng.dev@gmail.com>
+Meng LU `<lumeng.dev@gmail.com>`  
 July 3, 2014
 
 Java environment:
@@ -19,6 +19,7 @@ System.getProperty("java.runtime.version") = 1.6.0_65-b14-462-11M4609
 | m_obj  | com.javamex.classmexer.MemoryUtil.memoryUsageOf(<object>)                           | equivalent to java.lang.instrument.Instrumentation.getObjectSize()               |
 | m_deep | com.javamex.classmexer.MemoryUtil.deepMemoryUsageOf(<object>, VisibilityFilter.ALL) | recursively use Instrumentation.getObjectSize() to include referenced objects    |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 |                                          variable/object/array type (N=800) |    total memory M (bytes)     |   bytes per element  | metadata [+ padding] |       scaling       |
 |                                                                 measurement |   m1 - m2     m_obj    m_deep |           M/N        |  M - N * ((int) M/N) |                     |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
