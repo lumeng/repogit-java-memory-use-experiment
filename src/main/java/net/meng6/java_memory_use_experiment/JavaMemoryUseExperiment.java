@@ -155,12 +155,12 @@ public class JavaMemoryUseExperiment {
         System.out.println("System.getProperty(\"java.runtime.version\") = "
                 + System.getProperty("java.runtime.version"));
         printDivider();
-        System.out.println(String.format("| %-175s |", "                                 Java memory use measurements"));
+        System.out.println(String.format("| %-175s |", charSequence(" ", 60) + "Empirically Measured Memory Use of some Java Data Structures"));
         printDivider();
-        System.out.println(String.format("| %-8s | %-100s | %-61s |", "m1, m2", "Runtime.getRuntime().freeMemory()", ""));
-        System.out.println(String.format("| %-8s | %-100s | %-61s |", "m1 - m2", "", "decrease in free memory"));
-        System.out.println(String.format("| %-8s | %-100s | %-61s |", "m_obj", "com.javamex.classmexer.MemoryUtil.memoryUsageOf(<some object>)", "does not include referenced objects"));
-        System.out.println(String.format("| %-8s | %-100s | %-61s |", "m_deep", "com.javamex.classmexer.MemoryUtil.deepMemoryUsageOf(<some object>, VisibilityFilter.ALL)", "does not include referenced objects"));
+        System.out.println(String.format("| %-6s | %-83s | %-80s |", "m1, m2", "Runtime.getRuntime().freeMemory()", ""));
+        System.out.println(String.format("| %-6s | %-83s | %-80s |", "m1-m2", "", "decrease in free memory"));
+        System.out.println(String.format("| %-6s | %-83s | %-80s |", "m_obj", "com.javamex.classmexer.MemoryUtil.memoryUsageOf(<object>) ", "equivalent to java.lang.instrument.Instrumentation.getObjectSize()"));
+        System.out.println(String.format("| %-6s | %-83s | %-80s |", "m_deep", "com.javamex.classmexer.MemoryUtil.deepMemoryUsageOf(<object>, VisibilityFilter.ALL)", "recursively use Instrumentation.getObjectSize() to include referenced objects"));
 
         int i; // iterator
         printDivider();
@@ -565,13 +565,15 @@ public class JavaMemoryUseExperiment {
     }
 
     private static void printDivider() {
-        printLine(179, "-");
+        printLine("-", 179);
     }
 
-    private static void printLine(int width, String charStr) {
-        System.out.println(
-                String.format(String.format("%%0%dd", width), 0).replace("0", charStr)
-        );
+    private static void printLine(String charStr, int width) {
+        System.out.println(charSequence(charStr, width));
+    }
+
+    private static String charSequence(String charStr, int width) {
+        return String.format(String.format("%%0%dd", width), 0).replace("0", charStr);
     }
 
     public static void main(String[] args) {
