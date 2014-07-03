@@ -1,9 +1,16 @@
+# Empirically Measured Memory Use of some Java Data
+
+Meng LU <lumeng.dev@gmail.com>
+July 3, 2014
+
 Java environment:
+
 System.getProperty("sun.arch.data.model") = 64
 System.getProperty("java.specification.version") = 1.6
 System.getProperty("java.version" = 1.6.0_65
 System.getProperty("java.vm.version") = 20.65-b04-462
 System.getProperty("java.runtime.version") = 1.6.0_65-b14-462-11M4609
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 |                                                             Empirically Measured Memory Use of some Java Data Structures                                                        |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
