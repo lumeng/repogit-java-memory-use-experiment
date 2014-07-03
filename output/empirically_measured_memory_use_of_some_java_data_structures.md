@@ -1,4 +1,4 @@
-# Empirically Measured Memory Use of some Java Data
+# Empirically Measured Memory Use of some Java Data Structures
 
 Meng LU `<lumeng.dev@gmail.com>`  
 July 3, 2014
@@ -29,6 +29,8 @@ System.getProperty("java.runtime.version") = 1.6.0_65-b14-462-11M4609
 
 |                                                                         int |         0        16        16 |      0     16     16 |                      |                     |
 |                                                                       short |         0        16        16 |      0     16     16 |                      |                     |
+
+
 |                                                                        long |         0        24        24 |      0     24     24 |                      |                     |
 |                                                                       float |         0        16        16 |      0     16     16 |                      |                     |
 |                                                                      double |         0        24        24 |      0     24     24 |                      |                     |
