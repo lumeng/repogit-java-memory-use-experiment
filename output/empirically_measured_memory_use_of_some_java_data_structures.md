@@ -23,6 +23,10 @@ System.getProperty("java.runtime.version") = 1.6.0_65-b14-462-11M4609
 |                                          variable/object/array type (N=800) |    total memory M (bytes)     |   bytes per element  | metadata [+ padding] |       scaling       |
 |                                                                 measurement |   m1 - m2     m_obj    m_deep |           M/N        |  M - N * ((int) M/N) |                     |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 |                                                                         int |         0        16        16 |      0     16     16 |                      |                     |
 |                                                                       short |         0        16        16 |      0     16     16 |                      |                     |
 |                                                                        long |         0        24        24 |      0     24     24 |                      |                     |
