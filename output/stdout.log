@@ -1,9 +1,16 @@
 Java environment:
-JVM architecture System.getProperty("sun.arch.data.model") = 64
+System.getProperty("sun.arch.data.model") = 64
 System.getProperty("java.specification.version") = 1.6
 System.getProperty("java.version" = 1.6.0_65
 System.getProperty("java.vm.version") = 20.65-b04-462
 System.getProperty("java.runtime.version") = 1.6.0_65-b14-462-11M4609
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                                  Java memory use measurements                                                                                                                   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| m1, m2   | Runtime.getRuntime().freeMemory()                                                                    |                                                               |
+| m1 - m2  |                                                                                                      | decrease in free memory                                       |
+| m_obj    | com.javamex.classmexer.MemoryUtil.memoryUsageOf(<some object>)                                       | does not include referenced objects                           |
+| m_deep   | com.javamex.classmexer.MemoryUtil.deepMemoryUsageOf(<some object>, VisibilityFilter.ALL)             | does not include referenced objects                           |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 |                                          variable/object/array type (N=800) |    total memory M (bytes)     |   bytes per element  | metadata [+ padding] |       scaling       |
 |                                                                 measurement |   m1 - m2     m_obj    m_deep |           M/N        |  M - N * ((int) M/N) |                     |

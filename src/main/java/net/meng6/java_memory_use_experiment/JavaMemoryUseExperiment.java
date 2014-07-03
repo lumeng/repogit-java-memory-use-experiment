@@ -142,8 +142,9 @@ public class JavaMemoryUseExperiment {
             System.err.println("Could not create/find the file.");
         }
 
+
         System.out.println("Java environment:");
-        System.out.println("JVM architecture System.getProperty(\"sun.arch.data.model\") = "
+        System.out.println("System.getProperty(\"sun.arch.data.model\") = "
                 + System.getProperty("sun.arch.data.model"));
         System.out.println("System.getProperty(\"java.specification.version\") = "
                 + System.getProperty("java.specification.version"));
@@ -153,10 +154,16 @@ public class JavaMemoryUseExperiment {
                 + System.getProperty("java.vm.version"));
         System.out.println("System.getProperty(\"java.runtime.version\") = "
                 + System.getProperty("java.runtime.version"));
-
+        printDivider();
+        System.out.println(String.format("| %-175s |", "                                 Java memory use measurements"));
+        printDivider();
+        System.out.println(String.format("| %-8s | %-100s | %-61s |", "m1, m2", "Runtime.getRuntime().freeMemory()", ""));
+        System.out.println(String.format("| %-8s | %-100s | %-61s |", "m1 - m2", "", "decrease in free memory"));
+        System.out.println(String.format("| %-8s | %-100s | %-61s |", "m_obj", "com.javamex.classmexer.MemoryUtil.memoryUsageOf(<some object>)", "does not include referenced objects"));
+        System.out.println(String.format("| %-8s | %-100s | %-61s |", "m_deep", "com.javamex.classmexer.MemoryUtil.deepMemoryUsageOf(<some object>, VisibilityFilter.ALL)", "does not include referenced objects"));
 
         int i; // iterator
-        printLine(179);
+        printDivider();
         System.out.println(String.format(
                 "| %75s | %29s | %20s | %20s | %19s |",
                 "variable/object/array type (N="+N+")",
@@ -175,7 +182,7 @@ public class JavaMemoryUseExperiment {
                 "M - N * ((int) M/N)",
                 ""
         ));
-        printLine(179);
+        printDivider();
 
         m1 = getFreeMemory();
         // no-op here
@@ -528,7 +535,7 @@ public class JavaMemoryUseExperiment {
         printArrayMemoryUse("SimpleClass[N] + N SimpleClass");
         array_SimpleClass = null;
 
-        printLine(179);
+        printDivider();
 
     }
 
@@ -557,9 +564,13 @@ public class JavaMemoryUseExperiment {
         );
     }
 
-    private static void printLine(int width) {
+    private static void printDivider() {
+        printLine(179, "-");
+    }
+
+    private static void printLine(int width, String charStr) {
         System.out.println(
-                String.format(String.format("%%0%dd", width), 0).replace("0", "-")
+                String.format(String.format("%%0%dd", width), 0).replace("0", charStr)
         );
     }
 
